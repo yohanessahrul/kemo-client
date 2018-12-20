@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import history from './history';
+import history from './history'; 
 
 import Home from './pages/Home';
 import About from './pages/About';
