@@ -65,8 +65,9 @@ class ContentAdminArtikel extends Component {
   saveChoosenImage () {
     let { id, imgTerpilih } = this.state;
     let token = localStorage.getItem('token');
-    this.props.changeImageArticleAction(id, imgTerpilih, token)
-    this.setState({ modal: false })
+
+    this.setState({ modal: false });
+    this.props.changeImageArticleAction(id, imgTerpilih, token);
     this.props.resetChooseImage();
   }
 

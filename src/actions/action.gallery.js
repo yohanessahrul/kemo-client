@@ -2,7 +2,8 @@ import history from '../history';
 import axios from 'axios';
 import alertify from 'alertifyjs';
 
-const baseIpServer = 'http://localhost:8000';
+// const baseIpServer = 'http://localhost:8000';
+const baseIpServer = 'http://35.187.225.21:3000';
 
 export function getAllGaleriesAction (token) {
   return dispatch => {

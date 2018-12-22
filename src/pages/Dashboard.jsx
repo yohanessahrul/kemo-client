@@ -5,6 +5,9 @@ import {
   Button,
  } from 'reactstrap';
 
+ import { connect } from 'react-redux';
+ import { bindActionCreators } from 'redux';
+ import { cekAuthAction } from '../actions/action.user';
 
 class Dashboard extends Component {
     constructor() {
@@ -14,25 +17,32 @@ class Dashboard extends Component {
       }
       this.logout = this.logout.bind(this)
     }
+
     componentDidMount(){
-      if (!localStorage.getItem('token')) {
-        history.push('/login')
+      console.log('Cek 1')
+      this.cekLogin()
+    }
+
+    cekLogin () {
+      let token = localStorage.getItem('token');
+      if (token) {
+        this.props.cekAuthAction(token);
+      } else {
+        history.push('/login');
+        console.log('Anda bukan admin, redirect ke login');
       }
     }
+
     logout () {
       alertify.confirm('Logout', 'Apakah anda ingin benr-benar keluar?', function(){
-        
         localStorage.removeItem('token');
         setTimeout(function() {
           history.push('/')
         }, 2000)
-
         alertify.success('Anda berhasil keluar')
-
       }, function(){ alertify.error('Cancel')});
-
-
     }
+
     render() {
         return (
             <div>
@@ -44,4 +54,14 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    state: state
+  }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  cekAuthAction
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

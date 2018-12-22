@@ -38,9 +38,9 @@ class ContentAdminUser extends Component {
     )
   }
   render() {
-    const listArtikel = () => {
+    const listUsers = () => {
       if (this.state.isLoading) {
-        const loopArtikel = this.state.allUsers.map((data, i) => {
+        const loopUsers = this.state.allUsers.map((data, i) => {
           return (
             <tr key={data._id}>
               <td>{i++ + 1}</td>
@@ -59,7 +59,7 @@ class ContentAdminUser extends Component {
             </tr>
           )
         })
-        return loopArtikel;
+        return loopUsers;
       }
     }
     return (
@@ -85,7 +85,7 @@ class ContentAdminUser extends Component {
                 </tr>
               </thead>
               <tbody>
-                {listArtikel()}
+                {listUsers()}
               </tbody>
             </Table>
         }

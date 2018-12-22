@@ -13,7 +13,8 @@ import FloatLogin from '../components/FloatLogin';
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { moveUrl } from '../actions/action.url';
+// import { moveUrl } from '../actions/action.url';
+
 import history from '../history'
 
 class Navigation extends Component {
@@ -105,14 +106,10 @@ class Navigation extends Component {
                 <NavItem className="daftarButton">
                   <div style={{ background: 'red' }}>
                     <Button style={{marginTop: -10, marginBottom: -10, position: 'relative'}} onClick={this.Daftar}>
-                    {/* <Button style={{marginTop: -10, marginBottom: -10, position: 'relative'}} onClick={this.showDaftarContainer}> */}
                       {daftar}
                     </Button>
                     {
-                      (this.state.showLogin) ?
-                        <FloatLogin/>
-                      :
-                      ''
+                      (this.state.showLogin) ? <FloatLogin/> : ''
                     }
                   </div>
                 </NavItem>
@@ -121,6 +118,9 @@ class Navigation extends Component {
                 </NavItem>
                 <NavItem>
                   <Link to="/about">{tentang}</Link>
+                </NavItem>
+                <NavItem>
+                  <Link to="/artikel">ARTIKEL</Link>
                 </NavItem>
                 <NavItem>
                   <Link to="/kalkulator" target="_blank">
@@ -146,7 +146,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    moveUrl
+    // moveUrl
   }, dispatch)
 }
 
