@@ -9,6 +9,8 @@ import Register from './components/formSignUp/WizardForm';
 import NotifRegister from './components/formSignUp/FifthForm';
 import { Router, Switch, Route } from 'react-router-dom';
 import LayananMobile from './pages/LayananMobile';
+import ArtikelPage from './pages/ArtikelPage';
+import ArtikelPageById from './pages/ArtikelPageById';
 
 import dataJSON from './template.json';
 
@@ -74,6 +76,8 @@ class App extends Component {
                 <Route path="/notif-form" component={NotifRegister}></Route>
                 <Route path="/layananmobile" component={(props) => <LayananMobile {...props} lang={this.state.lang}/>}></Route>                                                     
                 <Route path="/kalkulator" component={() => window.location = 'http://kalkulator.kemodijakarta.com/#/'}></Route>
+                <Route exact path="/artikel" component={(props) => <ArtikelPage {...props} lang={this.state.lang}/>}></Route>
+                <Route path="/artikel/:id/:title" component={(props) => <ArtikelPageById {...props} lang={this.state.lang} />}/>
 
                 <Route path="/login" component={Login}></Route>
                 <Route path="/admin/dashboard" component={Dashboard}></Route>

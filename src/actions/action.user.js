@@ -2,7 +2,8 @@ import history from '../history';
 import axios from 'axios';
 import alertify from 'alertifyjs';
 
-const baseIpServer = 'http://localhost:8000';
+// const baseIpServer = 'http://localhost:8000';
+const baseIpServer = 'http://35.187.225.21:3000';
 
 export function loginAction (email, password) {
   return dispatch => {
@@ -12,7 +13,13 @@ export function loginAction (email, password) {
     })
       .then((response) => {
         if (response.data.msg !== 'passwordIncorrect') {
+          if (response.data.role === 'author') {
+            // admin specialize
+            localStorage.setItem('usac', 'y');
+          }
           localStorage.setItem('token', response.data.token)
+          localStorage.setItem('username', response.data.username)
+          localStorage.setItem('role', response.data.role)
           dispatch(adminUserLogin(response.data));
           history.push('/admin/dashboard');
           alertify.success('Anda bergasil login');
@@ -103,6 +110,23 @@ export function deleteUserAction (id, token) {
     })
       .then((response) => {
         dispatch(adminGetAllUser(response.data.data))
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+}
+
+export function cekAuthAction (token) {
+  return dispatch => {
+    axios.get(`${baseIpServer}/api/user/ceklogin/${token}`)
+      .then((response) => {
+        // console.log('respons cek login ==> ', response.data.msg)
+        if (response.data.msg === 'unvalid') {
+          localStorage.removeItem('token')
+          history.push('/login')
+        }
+        
       })
       .catch((err) => {
         console.log(err)

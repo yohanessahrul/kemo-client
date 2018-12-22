@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'reactstrap';
-
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-
 import TabAutentikasi from '../components/TabAutentikasi';
 import FormLogin from '../components/FormLogin';
 
@@ -24,16 +20,4 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    userLogin: state.userLogin
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    // userLoginAction
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

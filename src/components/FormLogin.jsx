@@ -7,7 +7,8 @@ import {
 } from 'reactstrap';
 
 import { connect } from 'react-redux';
-import { userLoginAction } from '../actions/action.signIn';
+// import { userLoginAction } from '../actions/action.signIn';
+import { loginAction } from '../actions/action.user';
 import { bindActionCreators } from 'redux';
 
 class FormLogin extends Component {
@@ -34,7 +35,7 @@ class FormLogin extends Component {
       password: this.state.password,
     }
 
-    this.props.userLoginAction(loginUser)
+    this.props.loginAction(loginUser)
 
     console.log('Simpan hasil Form', loginUser)
   }
@@ -64,7 +65,7 @@ const mapStateToProps = (state) => {
   
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    userLoginAction
+    loginAction
   }, dispatch)
 }
 

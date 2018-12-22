@@ -960,4 +960,37 @@ input[type="text"], input[type="email"],input[type="password"]{
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.modalGalleryList > ul > li > img {
+  width: 120%;
+  margin-left: -10%;
+}
+.sidebarMenu {
+  display: block;
+  background: #065461;
+  padding: 0;
+  /* margin: 0; */
+  margin-top: 10px !important
+}
+.sidebarMenu > li {
+  list-style: none;
+  border-bottom: thin solid #1c93a8!important;
+}
+
+.sidebarMenu > li:hover {
+  background: #023942;
+}
+
+.sidebarMenu > li > a {
+  width: 100%;
+  display: table;
+  padding: 10px !important;
+  color: white;
+  text-decoration: none;
+}
+
+.activeSidebarMenu {
+  background: #023942;
 }

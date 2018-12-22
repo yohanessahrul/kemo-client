@@ -47,14 +47,14 @@ class ModalBodyComponent extends Component {
             if (this.state.imageTerpilih === null || data.img !== this.state.imageTerpilih) {
               return (
                 <li key={data._id} onClick={() => deepThis.chooseImage(data.img)}>
-                  <img style={{ width: '100%' }} src={data.img} alt={data.img}/>
+                  <img src={data.img} alt={data.img}/>
                 </li>
               )
             } else {
               if (data.img === this.state.imageTerpilih) {
                 return (
-                  <li key={data._id} onClick={() => deepThis.chooseImage(data.img)} style={{ border: '2px solid red' }}>
-                    <img style={{ width: '100%' }} src={data.img} alt={data.img}/>
+                  <li key={data._id} onClick={() => deepThis.chooseImage(data.img)} style={{ border: '2px solid #66d4cf' }}>
+                    <img src={data.img} alt={data.img}/>
                   </li>
                 )
               }

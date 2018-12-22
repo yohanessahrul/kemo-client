@@ -2,15 +2,17 @@ import history from '../history';
 import axios from 'axios';
 import alertify from 'alertifyjs';
 
-const baseIpServer = 'http://localhost:8000';
+// const baseIpServer = 'http://localhost:8000';
+const baseIpServer = 'http://35.187.225.21:3000';
 
 export function getAllArticlesAction (token) {
+  console.log('masuk action get all article')
   return dispatch => {
     axios.get(`${baseIpServer}/api/article/getallarticles`, {
       headers: { token: token }
     })
       .then((response) => {
-        // console.log('Respon action get all users => ', response.data.data)
+        console.log('Respon action get all users => ', response.data.data)
         dispatch(getAllArticlesReducer(response.data.data))
       })
       .catch((err) => {
@@ -47,7 +49,7 @@ export function getArticleByIdAction (id, token) {
     })
       .then((response) => {
         dispatch(getArticleByIdReducer(response.data.data))
-        // console.log('get article by id response => ', response.data.data)
+        console.log('get article by id response => ', response.data.data)
       })
       .catch((err) => {
         console.log(err)
@@ -90,6 +92,7 @@ export function changeArticleByIdAction (id, token, judul, isi) {
 }
 
 export function changeImageArticleAction (id, urlImage, token) {
+  console.log('masuk sini', id, urlImage)
   return dispatch => {
     axios.put(`${baseIpServer}/api/article/changeimagearticle/${id}`, {
       img: urlImage
