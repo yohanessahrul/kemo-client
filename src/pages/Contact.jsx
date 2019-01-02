@@ -16,12 +16,11 @@ import { moveUrl } from '../actions/action.url';
 import { Icon } from 'react-icons-kit';
 import { envelopeO, whatsapp } from 'react-icons-kit/fa';
 
+import { Helmet } from 'react-helmet';
+
 class Contact extends Component {
   componentDidMount () {
-    document.title = "Kemodijakarta.com | Kontak Jasa Perjalanan Medis Jakarta";
-    document.querySelector('meta[name="description"]').setAttribute("content", "Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta...");
-    document.querySelector('meta[name="keywords"]').setAttribute("content", "perjalanan medis")
-    document.querySelector('meta[name="author"]').setAttribute("content", "PT Vitamin Masyarakat Sehat")
+    
   }
   render() {
     const { h1 } = this.props.lang.contact.form
@@ -29,6 +28,17 @@ class Contact extends Component {
     const { slideSection } = this.props.lang.home
     return (
       <div>
+        <Helmet>
+          <title>Kemodijakarta.com | Kontak Jasa Perjalanan Medis Jakarta</title>
+          <meta name="description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+          <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
+          <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
+
+          <meta property="og:url" content="http://kemodijakarta.com/" data-react-helmet="true" />
+          <meta property="og:image" content="http://kemodijakarta.com/images/kemo-image-share.jpeg" data-react-helmet="true" />
+          <meta property="og:title" content="Kemodijakarta.com | Kontak Jasa Perjalanan Medis Jakarta" data-react-helmet="true" />
+          <meta property="og:description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+        </Helmet>
         <div className="headerWrap">
           <Navigation lang={this.props.lang.menu}/>
         </div>

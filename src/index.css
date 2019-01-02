@@ -994,3 +994,35 @@ input[type="text"], input[type="email"],input[type="password"]{
 .activeSidebarMenu {
   background: #023942;
 }
+.card {
+  -webkit-box-shadow: 0 0 10px 1px #EDEDED;
+  box-shadow: 0 0 10px 1px #EDEDED;
+}
+.cardBody {
+  height: 210px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  background: #f9f9f9;
+}
+a.cardTitle {
+  font-family: 'Lato', sans-serif;
+  color: #37474F;
+  font-weight: bold!important;
+}
+.cardTitle:hover {
+  text-decoration: none;
+  color: rgb(25, 41, 49);
+  font-weight: bold!important;
+}
+.cardDesc {
+  font-family: 'Lato', sans-serif;
+  color: #607D8C;
+  font-size: 14px;
+}
+.cardDate {
+  display: inline-table !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  margin-bottom: 15px !important;
+}

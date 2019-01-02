@@ -18,6 +18,8 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
+import { Helmet } from 'react-helmet';
+
 class Home extends Component {
   constructor (props) {
     super(props)
@@ -28,10 +30,10 @@ class Home extends Component {
     this.closePopUp = this.closePopUp.bind(this);
   }
   componentDidMount() {
-    document.title = "Kemodijakarta.com | Jasa Perjalanan Medis Jakarta";
-    document.querySelector('meta[name="description"]').setAttribute("content", "Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta...");
-    document.querySelector('meta[name="keywords"]').setAttribute("content", "perjalanan medis")
-    document.querySelector('meta[name="author"]').setAttribute("content", "PT Vitamin Masyarakat Sehat")
+    // document.title = "Kemodijakarta.com | Jasa Perjalanan Medis Jakarta";
+    // document.querySelector('meta[name="description"]').setAttribute("content", "Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta...");
+    // document.querySelector('meta[name="keywords"]').setAttribute("content", "perjalanan medis")
+    // document.querySelector('meta[name="author"]').setAttribute("content", "PT Vitamin Masyarakat Sehat")
 
     // document.querySelector('meta[property="og:title"]').setAttribute("content", "Kemodijakarta.com | Jasa Perjalanan Medis Jakarta");
     // document.querySelector('meta[property="og:description"]').setAttribute("content", "Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta...");
@@ -45,6 +47,17 @@ class Home extends Component {
     const { slideSection } = this.props.lang.home
     return (
       <div>
+        <Helmet>
+          <title>Kemodijakarta.com | Jasa Perjalanan Medis Jakarta</title>
+          <meta name="description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+          <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
+          <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
+
+          <meta property="og:url" content="http://kemodijakarta.com/" data-react-helmet="true" />
+          <meta property="og:image" content="http://kemodijakarta.com/images/kemo-image-share.jpeg" data-react-helmet="true" />
+          <meta property="og:title" content="Kemodijakarta.com | Jasa Perjalanan Medis Jakarta" data-react-helmet="true" />
+          <meta property="og:description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+        </Helmet>
         <div className="headerWrap">
           <Navigation lang={this.props.lang.menu}/>
         </div>
@@ -62,7 +75,7 @@ class Home extends Component {
                   </Button>
                 </Link>
               </div>
-              <img src={require('../assets/img/home-image.png')} alt="slideImage"/>
+              <img src={'/images/home-image.png'} alt="slideImage"/>
             </div>
         </div>
         <KomikStrip komik={this.props.lang.home.komik}/>

@@ -2,7 +2,6 @@ import history from '../history';
 import axios from 'axios';
 import alertify from 'alertifyjs';
 
-// const baseIpServer = 'http://localhost:8000';
 const baseIpServer = 'http://35.187.225.21:3000';
 
 export function loginAction (email, password) {
@@ -121,7 +120,6 @@ export function cekAuthAction (token) {
   return dispatch => {
     axios.get(`${baseIpServer}/api/user/ceklogin/${token}`)
       .then((response) => {
-        // console.log('respons cek login ==> ', response.data.msg)
         if (response.data.msg === 'unvalid') {
           localStorage.removeItem('token')
           history.push('/login')

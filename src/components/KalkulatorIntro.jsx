@@ -11,7 +11,7 @@ class KalkulatorIntro extends Component {
               <Row style={{ padding: '100px 0px' }}>
                 <Col lg="6">
                   <div style={{ width: '100%', overflow: 'hidden', borderRadius: '0px' }}>
-                    <img style={{ width: '100%', marginTop: '-30px', marginBottom: '20px' }} src={require('../assets/img/calc-medic2.jpeg')} alt="kalkulatorImageIntro"/>
+                    <img style={{ width: '100%', marginTop: '-30px', marginBottom: '20px' }} src={'/images/calc-medic2.jpeg'} alt="kalkulatorImageIntro"/>
                   </div>
                   <div className="clear"></div>
                 </Col>
