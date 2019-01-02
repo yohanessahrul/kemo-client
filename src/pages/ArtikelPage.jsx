@@ -19,6 +19,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getAllArticlesAction } from '../actions/action.artikel';
 
+import { Helmet } from 'react-helmet';
+
 class ArtikelPage extends Component {
   constructor (props) {
     super (props)
@@ -47,17 +49,17 @@ class ArtikelPage extends Component {
       if (this.state.isLoading) {
         const loopArticles = this.state.dataArticles.map((data, i) => {
           return (
-            <Col md="4" style={{ marginBottom: '35px' }}>
+            <Col md="4" style={{ marginBottom: '35px' }} key={data._id}>
               <Card>
                 <Link to={`/artikel/${data._id}/${judulConvertToUrlParameter(data.judul)}`}>                
                   <CardImg top width="100%" src={data.img} alt="Card image cap" />
                 </Link>
-                <CardBody style={{ height: '240px', overFlow: 'hidden' }}>
-                  <Link to={`/artikel/${data._id}/${judulConvertToUrlParameter(data.judul)}`}>
+                <CardBody className="cardBody">
+                  <Link className="cardTitle" to={`/artikel/${data._id}/${judulConvertToUrlParameter(data.judul)}`}>
                     <CardTitle>{data.judul.substring(0, 50)}</CardTitle>
                   </Link>
-                  <CardText>{data.isi.replace(/(<([^>]+)>)/ig,"").substring(0, 120)}..</CardText>
-                  <CardText>
+                  <CardText className="cardDesc">{data.isi.replace(/(<([^>]+)>)/ig,"").substring(0, 120)}..</CardText>
+                  <CardText className="cardDate">
                     <small className="text-muted">{data.createdDate}</small>
                   </CardText>
                 </CardBody>
@@ -70,6 +72,17 @@ class ArtikelPage extends Component {
     }
     return (
       <div>
+        <Helmet>
+          <title>Kemodijakarta.com | Artikel Jasa Perjalanan Medis Jakarta</title>
+          <meta name="description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+          <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
+          <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
+
+          <meta property="og:url" content="http://kemodijakarta.com/" data-react-helmet="true" />
+          <meta property="og:image" content="http://kemodijakarta.com/images/kemo-image-share.jpeg" data-react-helmet="true" />
+          <meta property="og:title" content="Kemodijakarta.com | Artikel Jasa Perjalanan Medis Jakarta" data-react-helmet="true" />
+          <meta property="og:description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
+        </Helmet>
         <div className="headerWrap">
           <Navigation lang={this.props.lang.menu}/>
         </div>

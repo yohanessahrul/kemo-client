@@ -97,7 +97,7 @@ class Navigation extends Component {
           <Container>
             <NavbarBrand>
               <div className="logoWrap">
-                <img className="logo" src={require('../assets/img/logo-kemo.png')} alt="logo"/>
+                <img className="logo" src={'/images/logo-kemo.png'} alt="logo"/>
               </div>
             </NavbarBrand>
             <NavbarToggler onClick={this.toogle}></NavbarToggler>

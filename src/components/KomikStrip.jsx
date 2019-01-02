@@ -12,15 +12,15 @@ import { arrowLeft, arrowRight } from 'react-icons-kit/fa';
 const komiks = () => {
     if (localStorage.getItem('lang') === 'en') {
       return [
-            { img: require('../assets/kartun/1-en.jpeg') },
-            { img: require('../assets/kartun/2-en.jpeg') },
-            { img: require('../assets/kartun/3-en.jpeg') },
+            { img: '/kartun/1-en.jpg' },
+            { img: '/kartun/2-en.jpg' },
+            { img: '/kartun/3-en.jpg' },
         ]
     } else {
         return [
-            { img: require('../assets/kartun/1.jpeg') },
-            { img: require('../assets/kartun/2.jpeg') },
-            { img: require('../assets/kartun/3.jpeg') },
+            { img: '/kartun/1.jpeg' },
+            { img: '/kartun/2.jpeg' },
+            { img: '/kartun/3.jpeg' }
         ]
     }
 } 

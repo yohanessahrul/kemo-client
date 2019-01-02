@@ -12,6 +12,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getArticleByIdAction } from '../actions/action.artikel';
 
+import { Helmet } from 'react-helmet';
+
 class ArtikelPageById extends Component {
   constructor (props) {
     super (props)
@@ -39,6 +41,17 @@ class ArtikelPageById extends Component {
     if (this.state.isLoading) {
       return (
         <div>
+          <Helmet>
+            <title>{`${this.state.currentArticle.judul}`}</title>
+            <meta name="description" content={`${this.state.currentArticle.isi.replace(/(<([^>]+)>)/ig,"").substring(0, 200)}`} data-react-helmet="true" />
+            <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
+            <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
+
+            <meta property="og:url" content={`${window.location.href}`} data-react-helmet="true" />
+            <meta property="og:image" content={`${this.state.currentArticle.img}`} data-react-helmet="true" />
+            <meta property="og:title" content={`${this.state.currentArticle.judul}`} data-react-helmet="true" />
+            <meta property="og:description" content={`${this.state.currentArticle.isi.replace(/(<([^>]+)>)/ig,"").substring(0, 200)}`} data-react-helmet="true" />
+          </Helmet>
           <div className="headerWrap">
             <Navigation lang={this.props.lang.menu}/>
           </div>
@@ -55,8 +68,7 @@ class ArtikelPageById extends Component {
             <Row>
               <Col md="8">
                 <h1>{this.state.currentArticle.judul}</h1>
-                <img src={this.state.currentArticle.img}/>
-                {/* {JSON.stringify(this.state.currentArticle.isi)} */}
+                <img src={this.state.currentArticle.img} alt={this.state.currentArticle.img}/>
                 <div dangerouslySetInnerHTML={{ __html: this.state.currentArticle.isi }}></div>
               </Col>
             </Row>
