@@ -25,7 +25,7 @@ class About extends Component {
           <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
           <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
   
-          <meta property="og:url" content="http://kemodijakarta.com/" data-react-helmet="true" />
+          <meta property="og:url" content="http://kemodijakarta.com" data-react-helmet="true" />
           <meta property="og:image" content="http://kemodijakarta.com/images/kemo-image-share.jpeg" data-react-helmet="true" />
           <meta property="og:title" content="Kemodijakarta.com | Tentang Jasa Perjalanan Medis Jakarta" data-react-helmet="true" />
           <meta property="og:description" content="Selamat datang di Layanan Perjalanan Medis Rumah sakit Jakarta. Kami (kemodijakarta) adalah sebuah layanan pendampingan bagi penderita kanker yang menjalani pengobatan di jakarta..." data-react-helmet="true" />
