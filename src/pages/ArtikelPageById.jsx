@@ -39,6 +39,7 @@ class ArtikelPageById extends Component {
   render() {
     const { slideSection } = this.props.lang.home;
     if (this.state.isLoading) {
+      console.log('Tipe judul ==> ', typeof this.state.currentArticle.judul)
       return (
         <div>
           <Helmet>
@@ -47,9 +48,9 @@ class ArtikelPageById extends Component {
             <meta name="keywords" content="perjalanan medis" data-react-helmet="true" />
             <meta name="author" content="PT Vitamin Masyarakat Sehat" data-react-helmet="true" />
 
-            <meta property="og:url" content={`${window.location.href}`} data-react-helmet="true" />
-            <meta property="og:image" content={`${this.state.currentArticle.img}`} data-react-helmet="true" />
+            <meta property="og:url" content="http://kemodijakarta.com" data-react-helmet="true" />
             <meta property="og:title" content={`${this.state.currentArticle.judul}`} data-react-helmet="true" />
+            <meta property="og:image" content={`${this.state.currentArticle.img}`} data-react-helmet="true" />
             <meta property="og:description" content={`${this.state.currentArticle.isi.replace(/(<([^>]+)>)/ig,"").substring(0, 200)}`} data-react-helmet="true" />
           </Helmet>
           <div className="headerWrap">
